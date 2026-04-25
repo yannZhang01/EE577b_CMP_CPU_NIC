@@ -1,4 +1,4 @@
-`include "/usr/local/synopsys/Design_Compiler/K-2015.06-SP5-5/dw/sim_ver/DW_div.v"
+`include "DW_div.v"
 
 module dw_mod_lane #(
     parameter W = 8

@@ -5,13 +5,13 @@
 module tb_cardinal_cpu;
 
 reg clk, reset;
-wire [0:31] inst_in;	// Instruction data
-wire [0:31] pc_out;		// PC from where instruction should be fetched
-wire [0:63] d_in ;		// Data input for the load word 
-wire [0:31] addr_out;	// Which address memory should be written or read
+wire [31:0] inst_in;	// Instruction data
+wire [31:0] pc_out;		// PC from where instruction should be fetched
+wire [63:0] d_in ;		// Data input for the load word 
+wire [31:0] addr_out;	// Which address memory should be written or read
 wire memEn ;			// For Load word
 wire memWrEn;			// For Store Word
-wire [0:63] d_out ;		// Data out for the store word to be written in Memory
+wire [63:0] d_out ;		// Data out for the store word to be written in Memory
 
 parameter clock_period = 4;
 
@@ -22,7 +22,7 @@ integer dmem_dump_file_1, dmem_dump_file_2, dmem_dump_file_3;
 cardinal_cpu dut (clk, reset, inst_in, d_in, pc_out, addr_out, memEn, memWrEn, d_out);
 
 imem Ins_Cache (
-	.memAddr		(pc_out[22:29]),	// Only 8-bits are used in this project
+	.memAddr		(pc_out[29:22]),	// Only 8-bits are used in this project
 	.dataOut		(inst_in)		// 32-bit  Instruction
 	);
 
@@ -30,7 +30,7 @@ dmem DM_Cache (
 	.clk 		(clk),				// System Clock
 	.memEn		(memEn),			// data-memory enable (to avoid spurious reads)
 	.memWrEn	(memWrEn),		// data-memory Write Enable
-	.memAddr	(addr_out[24:31]),	// 8-bit Memory address
+	.memAddr	(addr_out[31:24]),	// 8-bit Memory address
 	.dataIn		(d_out),			// 64-bit data to data-memory
 	.dataOut	(d_in)			// 64-bit data from data-memory
 	);	

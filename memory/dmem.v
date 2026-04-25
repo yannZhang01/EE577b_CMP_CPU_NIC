@@ -43,4 +43,3 @@ module dmem (clk, memEn, memWrEn, memAddr, dataIn, dataOut);
 		end
 	end
 endmodule
-

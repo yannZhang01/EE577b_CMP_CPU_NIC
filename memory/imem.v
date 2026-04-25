@@ -7,7 +7,7 @@
 // Version      : ver2
 // Last Modified by : Aditya 
 // Update Log   :
-//  updated dataOut vector field to [0:31] from [0:63]
+//  updated dataOut vector field to [31:0] from [63:0]
 //
 /////////////////////////////////////////////////////////////////////
 `timescale 1ns/10ps

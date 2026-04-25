@@ -1,4 +1,4 @@
-`include "/usr/local/synopsys/Design_Compiler/K-2015.06-SP5-5/dw/sim_ver/DW_sqrt.v"
+`include "DW_sqrt.v"
 
 module dw_sqrt_lane #(
     parameter W = 8
